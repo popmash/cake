@@ -1,0 +1,79 @@
+<div class="container">
+ <div class="row">
+    <div class="py-5 ml-5">
+       <h4 class="bg-info text-white p-2 rounded-pill">新規会員登録</h4>
+      </div>
+    <div class="col-md-11">
+　　　<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+　　　<table class="table table-borderless">
+　　　  <tbody>
+　　　    <tr class="field">
+　　　      <td><%= f.label :名前 %></td>
+　　　      <td class="text-right">（姓）</td>
+　　　      <td><%= f.text_field :first_name,autofocus: true, autocomplete: "first_name",placeholder: '令和'%></td>
+　　　      <td class="text-right">（名）</td>
+　　　      <td><%= f.text_field :last_name,placeholder: '道子' %></td>
+　　　    </tr>
+　　　    <tr class="field">
+　　　      <td><%= f.label :フリガナ %></td>
+　　　      <td class="text-right">（セイ）</td>
+　　　      <td><%= f.text_field :first_name_kana,placeholder: 'レイワ' %></td>
+　　　      <td class="text-right">（メイ）</td>
+　　　      <td><%= f.text_field :last_name_kana,placeholder: 'ミチコ' %></td>
+　　　    </tr>
+　　　    <tr class="field">
+　　　      <td><%= f.label :メールアドレス %><br /></td>
+　　　      <td colspan="1"></td>
+　　　      <td> <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'sample@example.com' %></td>
+　　　      <td colspan="2"></td>
+　　　    </tr>
+　　　    <tr class="field">
+　　　      <td><%= f.label :郵便番号（ハイフンなし）%></td>
+　　　      <td colspan="1"></td>
+　　　      <td><%= f.text_field :post_code,placeholder: '0000000' %></td>
+　　　       <td colspan="2"></td>
+　　　    </tr>
+　　　    <tr class="field">
+　　　      <td><%= f.label :住所）%></td>
+　　　      <td colspan="1"></td>
+　　　      <td colspan="3"><%= f.text_field :address,class: 'w-75',placeholder: '東京都渋谷区代々木0' %></td>
+　　　    </tr>
+　　　    <tr class="field">
+　　　      <td><%= f.label :電話番号（ハイフンなし） %></td>
+　　　      <td colspan="1"></td>
+　　　      <td><%= f.text_field :phone_number, placeholder: '00000000000' %></td>
+　　　       <td colspan="2"></td>
+　　　    </tr>
+　　　    <tr class="field">
+　　　      <td><%= f.label :パスワード %>
+                <% if @minimum_password_length %>
+                (<%= @minimum_password_length %>文字以上)
+                <% end %>
+            </td>
+　　　      <td colspan="1"></td>
+　　　      <td><%= f.password_field :password,autocomplete: "new-password" %></td>
+　　　       <td colspan="2"></td>
+　　　    </tr>
+　　　    <tr class="field">
+　　　      <td><%= f.label :パスワード（確認用） %></td>
+　　　      <td colspan="1"></td>
+　　　      <td> <%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+　　　       <td colspan="2"></td>
+　　　    </tr>
+　　　    <tr>
+　　　      <td colspan="2"></td>
+　　　      <td><%= f.submit "新規登録", class: 'btn btn-success btn-sm w-75' %></td>
+　　　      <td colspan="3"></td>
+　　　    </tr>
+　　　  </tbody>
+　　　</table>
+      <% end %>
+      <div class="col-10">
+        <h4 class="">既に登録済みの方</h4>
+        <p class="ml-3"><%= render "public/shared/links" %> からログインしてください。</p>
+      </div>
+
+   </div>
+ </div>
+</div>
